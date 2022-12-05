@@ -5,6 +5,10 @@ const { binance } = require("./binance");
 const port = 8080;
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("Listening!");
+});
+
 app.get("/price", (req, res) => {
   binance
     .getPrice(req.query?.symbol)
