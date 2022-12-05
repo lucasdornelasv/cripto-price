@@ -2,7 +2,7 @@ const express = require("express");
 
 const { binance } = require("./binance");
 
-const port = 3000;
+const port = 8080;
 const app = express();
 
 app.get("/price", (req, res) => {
