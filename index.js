@@ -16,7 +16,8 @@ app.get("/price", (req, res) => {
       res.json(price);
     })
     .catch((err) => {
-      res.send(err);
+      res.status(400);
+      res.json(err);
     });
 });
 
@@ -27,7 +28,8 @@ app.get("/24h", (req, res) => {
       res.json(price);
     })
     .catch((err) => {
-      res.send(err);
+      res.status(400);
+      res.json(err);
     });
 });
 
