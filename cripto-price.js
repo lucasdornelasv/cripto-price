@@ -15,8 +15,8 @@ class CriptoPrice {
       .then((res) => {
         console.log(res);
 
-        if (res.status.error_message) {
-          throw new Error(res.status.error_message);
+        if (res.status.error_message || res.status.error_code) {
+          throw res.status;
         }
 
         return res.data[symbol]?.[0]?.quote?.USD;
