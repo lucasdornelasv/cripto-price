@@ -20,6 +20,9 @@ class CriptoPrice {
         }
 
         return res.data[symbol]?.[0];
+      }).catch(err => {
+        console.log(err);
+        throw err;
       });
   }
 
