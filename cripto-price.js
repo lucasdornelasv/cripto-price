@@ -4,7 +4,7 @@ class CriptoPrice {
       "https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest";
   }
 
-  getInfo(symbol) {
+  getQuote(symbol) {
     symbol = symbol?.toUpperCase();
     return fetch(`${this.URL}?symbol=${symbol}`, {
       headers: {
@@ -19,17 +19,11 @@ class CriptoPrice {
           throw new Error(res.status.error_message);
         }
 
-        return res.data[symbol]?.[0];
+        return res.data[symbol]?.[0]?.quote?.USD;
       }).catch(err => {
         console.log(err);
         throw err;
       });
-  }
-
-  getQuote(symbol) {
-    return this.getInfo(symbol).then((res) => {
-      return res.quote.USD;
-    });
   }
 
   async getPrice(symbol) {
