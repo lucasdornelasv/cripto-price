@@ -13,6 +13,8 @@ class CriptoPrice {
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
+
         if (res.status.error_message) {
           throw new Error(res.status.error_message);
         }
