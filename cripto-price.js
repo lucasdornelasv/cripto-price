@@ -13,6 +13,10 @@ class CriptoPrice {
     })
       .then((res) => res.json())
       .then((res) => {
+        if (res.status.error_message) {
+          throw new Error(res.status.error_message);
+        }
+
         return res.data[symbol]?.[0];
       });
   }
