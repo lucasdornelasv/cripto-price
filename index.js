@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { binance } = require("./binance");
+const { criptoPrice } = require("./cripto-price");
 
 const port = 8080;
 const app = express();
@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/price", (req, res) => {
-  binance
+  criptoPrice
     .getPrice(req.query?.symbol)
     .then((price) => {
       res.json(price);
@@ -21,7 +21,7 @@ app.get("/price", (req, res) => {
 });
 
 app.get("/24h", (req, res) => {
-  binance
+  criptoPrice
     .getPrice(req.query?.symbol)
     .then((price) => {
       res.json(price);
