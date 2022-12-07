@@ -6,9 +6,12 @@ class CriptoPrice {
 
   getQuote(symbol) {
     symbol = symbol?.toUpperCase();
+
+    throw symbol;
+
     return fetch(`${this.URL}?symbol=${symbol}`, {
       headers: {
-        "X-CMC_PRO_API_KEY": "88ecca9e-3db3-4995-bc38-1e9f6c10ed445",
+        "X-CMC_PRO_API_KEY": "88ecca9e-3db3-4995-bc38-1e9f6c10ed44",
       },
     })
       .then((res) => res.json())
