@@ -7,8 +7,6 @@ class CriptoPrice {
   getQuote(symbol) {
     symbol = symbol?.toUpperCase();
 
-    throw symbol;
-
     return fetch(`${this.URL}?symbol=${symbol}`, {
       headers: {
         "X-CMC_PRO_API_KEY": "88ecca9e-3db3-4995-bc38-1e9f6c10ed44",
@@ -23,7 +21,8 @@ class CriptoPrice {
         }
 
         return res.data[symbol]?.[0]?.quote?.USD;
-      }).catch(err => {
+      })
+      .catch((err) => {
         console.log(err);
         throw err;
       });
@@ -32,10 +31,12 @@ class CriptoPrice {
   async getPrice(symbol) {
     try {
       const quote = await this.getQuote(symbol);
+return 'teste'
+
       const price = Number(quote.price);
       return price;
     } catch (e) {
-      throw e;
+      throw 'Não deu';
     }
   }
 
